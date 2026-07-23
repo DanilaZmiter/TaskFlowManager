@@ -2,7 +2,7 @@ from typing import Optional
 from uuid import UUID
 
 from pydantic import EmailStr
-from sqlalchemy import TEXT, VARCHAR, func
+from sqlalchemy import VARCHAR, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from src.models import BaseORM
@@ -24,9 +24,6 @@ class UsersORM(BaseORM):
     last_name: Mapped[Optional[str]] = mapped_column(
         VARCHAR(100), default=None
     )  # person's last name
-    description: Mapped[Optional[str]] = mapped_column(
-        TEXT, default=None
-    )  # description of person
     is_superuser: Mapped[bool] = mapped_column(
         default=False
     )  # status of administration level
