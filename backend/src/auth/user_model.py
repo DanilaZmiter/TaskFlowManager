@@ -8,7 +8,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 from src.models import BaseORM
 
 
-class UserORM(BaseORM):
+class UsersORM(BaseORM):
     uuid: Mapped[UUID] = mapped_column(
         primary_key=True, default=func.gen_random_uuid(), unique=True, index=True
     )  # primary key, user identification
