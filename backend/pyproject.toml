@@ -1,0 +1,27 @@
+[project]
+name = "TaskFlowAPI"
+version = "0.1.0"
+description = "TaskFlow API is a RESTful backend for managing personal tasks. It provides user registration and login with JWT-based authentication, full CRUD operations for tasks with filtering by status, pagination, and sorting. The API also generates pre-signed URLs for direct file uploads to S3 and triggers background deadline reminders via Celery and SES. All data is stored in PostgreSQL, and endpoints are protected by token validation."
+readme = "/home/danil/Projects/TaskFlowManager/README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "asyncpg>=0.31.0", # asynco driver for alchemy
+    "celery>=5.6.3", # broker client
+    "fastapi>=0.139.2", # web framework for routing
+    "passlib>=1.7.4", # hasher(bcrypt)
+    "pydantic-settings>=2.14.2", # for better settings coordinations
+    "pydantic[email]>=2.13.4", # email validator for pydantic
+    "python-multipart>=0.0.32", # for form support
+    "sqlalchemy>=2.0.51", # for orm programming
+    "uvicorn>=0.51.0", # web server for launch
+]
+
+[dependency-groups]
+dev = [ 
+    "alembic>=1.18.5", # database migrations
+    "black>=26.5.1", # code formatter
+    "httpx>=0.28.1", # testing api
+    "pre-commit>=4.6.1", # check code before commit
+    "pytest>=9.1.1", # tests
+    "pytest-asyncio>=1.4.0", # also test but async
+]
